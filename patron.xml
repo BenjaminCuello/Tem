@@ -1,0 +1,350 @@
+<templateSet group="patron">
+  <template name="adap ej" value="// Interfaz Cliente (lo que espera el cliente: enchufe redondo)&#10;// public interface EnchufeRedondo {&#10;//     void conectarRedondo();&#10;// }&#10;&#10;// Adaptee (enchufe existente, pero cuadrado)&#10;// public class EnchufeCuadrado {&#10;//     public void conectarCuadrado() {&#10;//         // Conectando con enchufe cuadrado&#10;//     }&#10;// }&#10;&#10;// Adapter (convierte de cuadrado a redondo)&#10;// public class AdaptadorCuadradoARedondo implements EnchufeRedondo {&#10;//     private EnchufeCuadrado enchufeCuadrado;&#10;//&#10;//     public AdaptadorCuadradoARedondo(EnchufeCuadrado enchufeCuadrado) {&#10;//         this.enchufeCuadrado = enchufeCuadrado;&#10;//     }&#10;//&#10;//     @Override&#10;//     public void conectarRedondo() {&#10;//         // Traduce la conexión cuadrada a redonda&#10;//         enchufeCuadrado.conectarCuadrado();&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         EnchufeCuadrado cuadrado = new EnchufeCuadrado();&#10;//         EnchufeRedondo adaptador = new AdaptadorCuadradoARedondo(cuadrado);&#10;//&#10;//         adaptador.conectarRedondo(); // El cliente cree que conecta un enchufe redondo&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="bui 3buicon" value="public class $BUILDERCONCRETO$ implements $BUILDER$ {&#10;&#10;    private $PRODUCTO$ producto = new $PRODUCTO$();&#10;&#10;    @Override&#10;    public void construirParteA() {&#10;        // Implementación de la parte A&#10;    }&#10;&#10;    @Override&#10;    public void construirParteB() {&#10;        // Implementación de la parte B&#10;    }&#10;&#10;    @Override&#10;    public $PRODUCTO$ obtenerProducto() {&#10;        return producto;&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="BUILDERCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="BUILDER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="absfac 2factcon" value="public class $CONCRETEFACTORY$Factory implements $FACTORY$Factory {&#10;&#10;    @Override&#10;    public $PRODUCTA$ crear$PRODUCTA$() {&#10;        return new $CONCRETEPRODUCTA$();&#10;    }&#10;&#10;    @Override&#10;    public $PRODUCTB$ crear$PRODUCTB$() {&#10;        return new $CONCRETEPRODUCTB$();&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONCRETEFACTORY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FACTORY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONCRETEPRODUCTA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTB" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONCRETEPRODUCTB" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="absfac 3intprod" value="public interface $PRODUCTA$ {&#10;    void metodoA();&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="PRODUCTA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="absfac 1intfact" value="public interface $FACTORY$Factory {&#10;    $PRODUCTA$ crear$PRODUCTA$(/* para*/);&#10;    $PRODUCTB$ crear$PRODUCTB$(/* para*/);&#10;}&#10;" description="crea-creafamiliaobjetos" toReformat="false" toShortenFQNames="true">
+    <variable name="FACTORY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTB" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="bui 1dire" value="public class $DIRECTOR$ {&#10;&#10;    private $BUILDER$ builder;&#10;&#10;    public $DIRECTOR$($BUILDER$ builder) {&#10;        this.builder = builder;&#10;    }&#10;&#10;    public void construir() {&#10;        builder.construirParteA();&#10;        builder.construirParteB();&#10;    }&#10;}&#10;" description="crea-construyecomplejospasoapaso" toReformat="false" toShortenFQNames="true">
+    <variable name="DIRECTOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="BUILDER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="absfac 4prod" value="public class $CONCRETEPRODUCTA$ implements $PRODUCTA$ {&#10;&#10;    @Override&#10;    public void metodoA() {&#10;     &#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="PRODUCTA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONCRETEPRODUCTA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="bui 2intbui" value="public interface $BUILDER$ {&#10;    void construirParteA();&#10;    void construirParteB();&#10;    $PRODUCTO$ obtenerProducto();&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="BUILDER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="absfac ej" value="// Interfaz Fábrica&#10;// public interface FabricaVehiculo {&#10;//     Scooter crearScooter();&#10;//     Auto crearAuto();&#10;// }&#10;&#10;// Fábrica Concreta 1: Electricidad&#10;// public class FabricaVehiculoElectricidad implements FabricaVehiculo {&#10;//     @Override&#10;//     public Scooter crearScooter() {&#10;//         return new ScooterElectrico();&#10;//     }&#10;//&#10;//     @Override&#10;//     public Auto crearAuto() {&#10;//         return new AutoElectrico();&#10;//     }&#10;// }&#10;&#10;// Fábrica Concreta 2: Gasolina&#10;// public class FabricaVehiculoGasolina implements FabricaVehiculo {&#10;//     @Override&#10;//     public Scooter crearScooter() {&#10;//         return new ScooterGasolina();&#10;//     }&#10;//&#10;//     @Override&#10;//     public Auto crearAuto() {&#10;//         return new AutoGasolina();&#10;//     }&#10;// }&#10;&#10;// Producto Abstracto A&#10;// public interface Scooter {&#10;//     void conducir();&#10;// }&#10;&#10;// Producto Abstracto B&#10;// public interface Auto {&#10;//     void conducir();&#10;// }&#10;&#10;// Producto Concreto A1: Scooter eléctrico&#10;// public class ScooterElectrico implements Scooter {&#10;//     public void conducir() { /* implementación */ }&#10;// }&#10;&#10;// Producto Concreto B1: Auto eléctrico&#10;// public class AutoElectrico implements Auto {&#10;//     public void conducir() { /* implementación */ }&#10;// }&#10;&#10;// Producto Concreto A2: Scooter gasolina&#10;// public class ScooterGasolina implements Scooter {&#10;//     public void conducir() { /* implementación */ }&#10;// }&#10;&#10;// Producto Concreto B2: Auto gasolina&#10;// public class AutoGasolina implements Auto {&#10;//     public void conducir() { /* implementación */ }&#10;// }&#10;" description="ej" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="adap 3adaptador" value="public class $ADAPTER$ implements $TARGET$ {&#10;&#10;    private $ADAPTEE$ adaptee;&#10;&#10;    public $ADAPTER$($ADAPTEE$ adaptee) {&#10;        this.adaptee = adaptee;&#10;    }&#10;&#10;    @Override&#10;    public void solicitud() {&#10;        // Traduce la llamada a la interfaz esperada&#10;        adaptee.solicitudEspecifica();&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="ADAPTER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="TARGET" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ADAPTEE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="adap 1intclien" value="public interface $TARGET$ {&#10;    void solicitud();&#10;}&#10;" description="estruc-adaptaobjainterfaz" toReformat="false" toShortenFQNames="true">
+    <variable name="TARGET" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="adap 2adaptado" value="public class $ADAPTEE$ {&#10;    public void solicitudEspecifica() {&#10;        // Lógica existente incompatible&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="ADAPTEE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="bui 4pro" value="public class $PRODUCTO$ {&#10;&#10;    // Atributos y métodos del producto&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="bui ej" value="// Director (orquesta la construcción)&#10;// public class Cocina {&#10;//     private RecetaBuilder builder;&#10;//&#10;//     public Cocina(RecetaBuilder builder) {&#10;//         this.builder = builder;&#10;//     }&#10;//&#10;//     public void prepararPlato() {&#10;//         builder.agregarIngredientePrincipal();&#10;//         builder.agregarGuarnicion();&#10;//     }&#10;// }&#10;&#10;// Builder (define los pasos abstractos)&#10;// public interface RecetaBuilder {&#10;//     void agregarIngredientePrincipal();&#10;//     void agregarGuarnicion();&#10;//     Plato obtenerPlato();&#10;// }&#10;&#10;// Builder Concreto 1 (implementa los pasos para un plato específico)&#10;// public class RecetaPastaBuilder implements RecetaBuilder {&#10;//     private Plato plato = new Plato();&#10;//&#10;//     public void agregarIngredientePrincipal() {&#10;//         // Agrega pasta&#10;//     }&#10;//&#10;//     public void agregarGuarnicion() {&#10;//         // Agrega pan de ajo&#10;//     }&#10;//&#10;//     public Plato obtenerPlato() {&#10;//         return plato;&#10;//     }&#10;// }&#10;&#10;// Producto (el resultado final)&#10;// public class Plato {&#10;//     // Atributos como ingredientePrincipal, guarnicion, etc.&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="dec 1compbase" value="public interface $COMPONENTE$ {&#10;    void operacion();&#10;}&#10;" description="estruc-agregacomplementos-mejora-amplia" toReformat="false" toShortenFQNames="true">
+    <variable name="COMPONENTE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="dec 2compastrc" value="public class $COMPONENTECONCRETO$ implements $COMPONENTE$ {&#10;&#10;    @Override&#10;    public void operacion() {&#10;        // Lógica básica&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="COMPONENTECONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="COMPONENTE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="dec 3decabstr" value="public abstract class $DECORATOR$ implements $COMPONENTE$ {&#10;&#10;    protected $COMPONENTE$ componente;&#10;&#10;    public $DECORATOR$($COMPONENTE$ componente) {&#10;        this.componente = componente;&#10;    }&#10;&#10;    public void operacion() {&#10;        componente.operacion();&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="DECORATOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="COMPONENTE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="dec 4decconc" value="public class $DECORATORCONCRETO$ extends $DECORATOR$ {&#10;&#10;    public $DECORATORCONCRETO$($COMPONENTE$ componente) {&#10;        super(componente);&#10;    }&#10;&#10;    @Override&#10;    public void operacion() {&#10;        super.operacion();&#10;        // Lógica adicional&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="DECORATORCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="DECORATOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="COMPONENTE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="dec ej" value="// Componente base (interfaz común)&#10;// public interface Bebida {&#10;//     void servir();&#10;// }&#10;&#10;// Componente concreto (café simple)&#10;// public class CafeSimple implements Bebida {&#10;//     public void servir() {&#10;//         System.out.println(&quot;Sirviendo café simple.&quot;);&#10;//     }&#10;// }&#10;&#10;// Decorador base (implementa Bebida y tiene un componente dentro)&#10;// public abstract class DecoradorBebida implements Bebida {&#10;//     protected Bebida bebida;&#10;//&#10;//     public DecoradorBebida(Bebida bebida) {&#10;//         this.bebida = bebida;&#10;//     }&#10;//&#10;//     public void servir() {&#10;//         bebida.servir(); // Delegación al componente (puede ser otro decorador o el café simple)&#10;//     }&#10;// }&#10;&#10;// Decorador concreto (agrega leche al café)&#10;// public class ConLeche extends DecoradorBebida {&#10;//     public ConLeche(Bebida bebida) {&#10;//         super(bebida);&#10;//     }&#10;//&#10;//     public void servir() {&#10;//         super.servir(); // Sirve lo que ya hay (café simple o más decoradores)&#10;//         System.out.println(&quot;Agregando leche.&quot;);&#10;//     }&#10;// }&#10;&#10;// Decorador concreto (agrega azúcar)&#10;// public class ConAzucar extends DecoradorBebida {&#10;//     public ConAzucar(Bebida bebida) {&#10;//         super(bebida);&#10;//     }&#10;//&#10;//     public void servir() {&#10;//         super.servir(); // Sirve lo que ya hay&#10;//         System.out.println(&quot;Agregando azúcar.&quot;);&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         Bebida cafe = new CafeSimple();&#10;//         Bebida cafeConLeche = new ConLeche(cafe);          // Café + Leche&#10;//         Bebida cafeConLecheAzucar = new ConAzucar(cafeConLeche);  // Café + Leche + Azúcar&#10;//&#10;//         cafeConLecheAzucar.servir();&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="fac 1fac" value="public class $FACADE$ {&#10;&#10;    private $SUBSISTEMA1$ subsistema1;&#10;    private $SUBSISTEMA2$ subsistema2;&#10;&#10;    public $FACADE$() {&#10;        subsistema1 = new $SUBSISTEMA1$();&#10;        subsistema2 = new $SUBSISTEMA2$();&#10;    }&#10;&#10;    public void operacion() {&#10;        subsistema1.accion1();&#10;        subsistema2.accion2();&#10;    }&#10;}&#10;" description="estruct" toReformat="false" toShortenFQNames="true">
+    <variable name="FACADE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUBSISTEMA1" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUBSISTEMA2" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="fac 2subsis" value="public class $SUBSISTEMA$ {&#10;    public void $ACCION$() {&#10;        // Acción específica del subsistema&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="SUBSISTEMA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACCION" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="fac ej" value="// Subsistema 1: Pantalla&#10;// public class Pantalla {&#10;//     public void bajar() {&#10;//         // Pantalla bajando...&#10;//     }&#10;// }&#10;&#10;// Subsistema 2: Proyector&#10;// public class Proyector {&#10;//     public void encender() {&#10;//         // Proyector encendido...&#10;//     }&#10;// }&#10;&#10;// Subsistema 3: Sonido&#10;// public class Sonido {&#10;//     public void encender() {&#10;//         // Sistema de sonido encendido...&#10;//     }&#10;// }&#10;&#10;// Facade (simplifica el uso de todos los subsistemas)&#10;// public class CineEnCasa {&#10;//     private Pantalla pantalla;&#10;//     private Proyector proyector;&#10;//     private Sonido sonido;&#10;//&#10;//     public CineEnCasa() {&#10;//         pantalla = new Pantalla();&#10;//         proyector = new Proyector();&#10;//         sonido = new Sonido();&#10;//     }&#10;//&#10;//     public void verPelicula() {&#10;//         pantalla.bajar();&#10;//         proyector.encender();&#10;//         sonido.encender();&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         CineEnCasa cine = new CineEnCasa();&#10;//         cine.verPelicula(); // Solo llama a un método, pero activa todo el sistema&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="fac simp" value="public class $FACHADA$ {&#10;&#10;    public void operacion1() {&#10;        // Lógica directa&#10;    }&#10;&#10;    public void operacion2() {&#10;        // Otra lógica directa&#10;    }&#10;}&#10;" description="simple" toReformat="false" toShortenFQNames="true">
+    <variable name="FACHADA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factmet 1factabstr" value="public abstract class $CREADOR$ {&#10;&#10;    public abstract $PRODUCTO$ crearProducto();&#10;&#10;    public void operarProducto() {&#10;        $PRODUCTO$ producto = this.crearProducto();&#10;        producto.operar();&#10;    }&#10;}&#10;" description="crea-creaobjetosconsubclases" toReformat="false" toShortenFQNames="true">
+    <variable name="CREADOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factmet 2factcon" value="public class $CREADORCONCRETO$ extends $CREADOR$ {&#10;&#10;    @Override&#10;    public $PRODUCTO$ crearProducto() {&#10;        return new $PRODUCTOCONCRETO$();&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="CREADORCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="CREADOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTOCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factmet 3intprod" value="public interface $PRODUCTO$ {&#10;    void operar();&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factmet 4prod" value="public class $PRODUCTOCONCRETO$ implements $PRODUCTO$ {&#10;&#10;    @Override&#10;    public void operar() {&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="PRODUCTOCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRODUCTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factmet ej" value="// Creador (clase base)&#10;// public abstract class CreadorMensaje {&#10;//     public abstract Mensaje crearMensaje();&#10;//&#10;//     public void procesarMensaje() {&#10;//         Mensaje mensaje = this.crearMensaje();&#10;//         mensaje.enviar();&#10;//     }&#10;// }&#10;&#10;// Creador concreto 1&#10;// public class CreadorMensajeTexto extends CreadorMensaje {&#10;//     public Mensaje crearMensaje() {&#10;//         return new MensajeTexto();&#10;//     }&#10;// }&#10;&#10;// Creador concreto 2&#10;// public class CreadorMensajeEmail extends CreadorMensaje {&#10;//     public Mensaje crearMensaje() {&#10;//         return new MensajeEmail();&#10;//     }&#10;// }&#10;&#10;// Producto (interfaz)&#10;// public interface Mensaje {&#10;//     void enviar();&#10;// }&#10;&#10;// Producto concreto 1&#10;// public class MensajeTexto implements Mensaje {&#10;//     public void enviar() { /* Enviando mensaje de texto */ }&#10;// }&#10;&#10;// Producto concreto 2&#10;// public class MensajeEmail implements Mensaje {&#10;//     public void enviar() { /* Enviando correo electrónico */ }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="obs 1suje" value="public class $SUBJECT$ {&#10;&#10;    private List&lt;$OBSERVER$&gt; observadores = new ArrayList&lt;&gt;();&#10;&#10;    public void agregarObservador($OBSERVER$ observador) {&#10;        observadores.add(observador);&#10;    }&#10;&#10;    public void quitarObservador($OBSERVER$ observador) {&#10;        observadores.remove(observador);&#10;    }&#10;&#10;    public void notificar() {&#10;        for ($OBSERVER$ o : observadores) {&#10;            o.actualizar();&#10;        }&#10;    }&#10;}&#10;" description="compor-avisanotifica" toReformat="false" toShortenFQNames="true">
+    <variable name="SUBJECT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OBSERVER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="obs 2intobs" value="public interface $OBSERVER$ {&#10;    void actualizar();&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="OBSERVER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="obs 3obsconcr" value="public class $OBSERVERCONCRETO$ implements $OBSERVER$ {&#10;&#10;    @Override&#10;    public void actualizar() {&#10;        // Lógica de actualización&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="OBSERVERCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OBSERVER" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="obs ej" value="// Observer (interfaz común para todos los suscriptores)&#10;// public interface Suscriptor {&#10;//     void notificar();&#10;// }&#10;&#10;// Observer concreto 1 (un suscriptor específico)&#10;// public class SuscriptorEmail implements Suscriptor {&#10;//     public void notificar() {&#10;//         System.out.println(&quot;Notificación por Email: ¡Nuevo video disponible!&quot;);&#10;//     }&#10;// }&#10;&#10;// Observer concreto 2 (otro suscriptor)&#10;// public class SuscriptorSMS implements Suscriptor {&#10;//     public void notificar() {&#10;//         System.out.println(&quot;Notificación por SMS: ¡Nuevo video disponible!&quot;);&#10;//     }&#10;// }&#10;&#10;// Sujeto (el canal de YouTube)&#10;// public class CanalYouTube {&#10;//     private List&lt;Suscriptor&gt; suscriptores = new ArrayList&lt;&gt;();&#10;//&#10;//     public void agregarSuscriptor(Suscriptor s) {&#10;//         suscriptores.add(s);&#10;//     }&#10;//&#10;//     public void quitarSuscriptor(Suscriptor s) {&#10;//         suscriptores.remove(s);&#10;//     }&#10;//&#10;//     public void subirNuevoVideo() {&#10;//         System.out.println(&quot;Canal: ¡Nuevo video subido!&quot;);&#10;//         notificarSuscriptores();&#10;//     }&#10;//&#10;//     private void notificarSuscriptores() {&#10;//         for (Suscriptor s : suscriptores) {&#10;//             s.notificar();&#10;//         }&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         CanalYouTube canal = new CanalYouTube();&#10;//         canal.agregarSuscriptor(new SuscriptorEmail());&#10;//         canal.agregarSuscriptor(new SuscriptorSMS());&#10;//&#10;//         canal.subirNuevoVideo();  // Notifica a todos los suscriptores&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="prox 1intsuj" value="public interface $SUBJECT$ {&#10;    void solicitar();&#10;}&#10;" description="estruc-controlaacceso" toReformat="false" toShortenFQNames="true">
+    <variable name="SUBJECT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="prox 2sujreal" value="public class $REALSUBJECT$ implements $SUBJECT$ {&#10;&#10;    @Override&#10;    public void solicitar() {&#10;        // Lógica real del sujeto&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="REALSUBJECT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUBJECT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="prox 3prox" value="public class $PROXY$ implements $SUBJECT$ {&#10;&#10;    private $REALSUBJECT$ realSubject;&#10;&#10;    @Override&#10;    public void solicitar() {&#10;        if (realSubject == null) {&#10;            realSubject = new $REALSUBJECT$();&#10;        }&#10;        // Lógica adicional antes o después de delegar&#10;        realSubject.solicitar();&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="PROXY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SUBJECT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="REALSUBJECT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="prox ej" value="// Interfaz Sujeto&#10;// public interface Video {&#10;//     void reproducir(); // Método que se llama al hacer clic&#10;// }&#10;&#10;// Sujeto Real (el video pesado)&#10;// public class VideoReal implements Video {&#10;//     public void reproducir() {&#10;//         System.out.println(&quot;Cargando y reproduciendo el video completo...&quot;);&#10;//     }&#10;// }&#10;&#10;// Proxy (espera hasta que hagas clic para cargar el VideoReal)&#10;// public class ProxyVideo implements Video {&#10;//     private VideoReal videoReal;&#10;//&#10;//     public void reproducir() {&#10;//         System.out.println(&quot;Clic detectado, preparando para reproducir...&quot;);&#10;//         if (videoReal == null) {&#10;//             System.out.println(&quot;Video aún no cargado, cargando ahora...&quot;);&#10;//             videoReal = new VideoReal();&#10;//         }&#10;//         videoReal.reproducir();&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         Video video = new ProxyVideo();&#10;//         System.out.println(&quot;Video listo, pero aún no cargado.&quot;);&#10;//         &#10;//         // Simula el clic para reproducir&#10;//         video.reproducir(); // Aquí recién se carga y reproduce&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="sin" value="public class $CLASS$ {&#10;&#10;    private static $CLASS$ instancia = null;&#10;&#10;    private $CLASS$() {&#10;    }&#10;&#10;    public static $CLASS$ getInstancia() {&#10;        if (instancia == null) {&#10;            instancia = new $CLASS$();&#10;        }&#10;        return instancia;&#10;    }&#10;}&#10;" description="crea" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="strat 1intstrat" value="public interface $ESTRATEGIA$ {&#10;    void ejecutar();&#10;}&#10;" description="comport-cambiatodoelcomportamiento-composicion-flexible-ifs" toReformat="false" toShortenFQNames="true">
+    <variable name="ESTRATEGIA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="strat 2stratconcr" value="public class $ESTRATEGIACONCRETA$ implements $ESTRATEGIA$ {&#10;&#10;    @Override&#10;    public void ejecutar() {&#10;        // Lógica específica de la estrategia&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="ESTRATEGIACONCRETA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ESTRATEGIA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="strat 3context-entidad" value="public class $CONTEXTO$ {&#10;&#10;    private $ESTRATEGIA$ estrategia;&#10;&#10;    public $CONTEXTO$($ESTRATEGIA$ estrategia) {&#10;        this.estrategia = estrategia;&#10;    }&#10;&#10;    public void ejecutarEstrategia() {&#10;        estrategia.ejecutar();&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTEXTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ESTRATEGIA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="strat ej" value="// Interfaz Strategy&#10;// public interface Movimiento {&#10;//     void moverse();&#10;// }&#10;&#10;// Estrategia concreta 1 (caminar)&#10;// public class Caminar implements Movimiento {&#10;//     public void moverse() {&#10;//         System.out.println(&quot;Caminando lentamente...&quot;);&#10;//     }&#10;// }&#10;&#10;// Estrategia concreta 2 (correr)&#10;// public class Correr implements Movimiento {&#10;//     public void moverse() {&#10;//         System.out.println(&quot;Corriendo rápido!&quot;);&#10;//     }&#10;// }&#10;&#10;// Contexto (el personaje usa una estrategia de movimiento)&#10;// public class Personaje {&#10;//     private Movimiento movimiento;&#10;//&#10;//     public Personaje(Movimiento movimiento) {&#10;//         this.movimiento = movimiento;&#10;//     }&#10;//&#10;//     public void mover() {&#10;//         movimiento.moverse();&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         Movimiento correr = new Correr();&#10;//         Personaje p = new Personaje(correr);  // El personaje corre&#10;//         p.mover();&#10;//&#10;//         // Cambiar la estrategia en tiempo de ejecución (por caminar)&#10;//         p = new Personaje(new Caminar());&#10;//         p.mover();&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stratifs 1context-entidad" value="public class $CONTEXT$ {&#10;&#10;    private $STRATEGY$ estrategia;&#10;&#10;    public $CONTEXT$($STRATEGY$ estrategia) {&#10;        this.estrategia = estrategia;&#10;    }&#10;&#10;    public void ejecutar() {&#10;        estrategia.ejecutar();&#10;    }&#10;}&#10;" description="paraifs-switch" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTEXT" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="STRATEGY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stratifs 2intstrat" value="public interface $STRATEGY$ {&#10;    void ejecutar();&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="STRATEGY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stratifs 3paracadaif" value="public class $STRATEGYCONCRETA$ implements $STRATEGY$ {&#10;&#10;    @Override&#10;    public void ejecutar() {&#10;        // Lógica específica para este &quot;caso&quot;&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="STRATEGYCONCRETA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="STRATEGY" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="stratifs ej" value="// Interfaz Strategy&#10;// public interface Operacion {&#10;//     void ejecutar();&#10;// }&#10;&#10;// Estrategia concreta 1 (suma)&#10;// public class Suma implements Operacion {&#10;//     public void ejecutar() {&#10;//         System.out.println(&quot;Sumando...&quot;);&#10;//     }&#10;// }&#10;&#10;// Estrategia concreta 2 (resta)&#10;// public class Resta implements Operacion {&#10;//     public void ejecutar() {&#10;//         System.out.println(&quot;Restando...&quot;);&#10;//     }&#10;// }&#10;&#10;// Contexto (Calculadora usa la estrategia)&#10;// public class Calculadora {&#10;//     private Operacion operacion;&#10;//&#10;//     public Calculadora(Operacion operacion) {&#10;//         this.operacion = operacion;&#10;//     }&#10;//&#10;//     public void calcular() {&#10;//         operacion.ejecutar();&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         Operacion suma = new Suma();&#10;//         Calculadora calc = new Calculadora(suma);  // Calculadora suma&#10;//         calc.calcular();&#10;//&#10;//         // Cambiar la estrategia por resta&#10;//         calc = new Calculadora(new Resta());&#10;//         calc.calcular();&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp 1tempabstr" value="public abstract class $BASE$ {&#10;&#10;    // Template Method (define el algoritmo)&#10;    public void ejecutar() {&#10;        paso1();&#10;        paso2();&#10;    }&#10;&#10;    protected abstract void paso1();&#10;    protected abstract void paso2();&#10;}&#10;" description="comport-cambiapartecomport-herencia" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp 2claseconcr" value="public class $CONCRETA$ extends $BASE$ {&#10;&#10;    @Override&#10;    protected void paso1() {&#10;        // Implementación del paso 1&#10;    }&#10;&#10;    @Override&#10;    protected void paso2() {&#10;        // Implementación del paso 2&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONCRETA" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="BASE" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp ej" value="// Clase base (define el algoritmo general)&#10;// public abstract class BebidaCaliente {&#10;//     // Template Method&#10;//     public void preparar() {&#10;//         hervirAgua();&#10;//         agregarIngredientes();&#10;//         servir();&#10;//     }&#10;//&#10;//     // Paso fijo&#10;//     private void hervirAgua() {&#10;//         System.out.println(&quot;Hirviendo agua...&quot;);&#10;//     }&#10;//&#10;//     // Paso variable (lo implementan las subclases)&#10;//     protected abstract void agregarIngredientes();&#10;//&#10;//     // Paso fijo&#10;//     private void servir() {&#10;//         System.out.println(&quot;Sirviendo en la taza...&quot;);&#10;//     }&#10;// }&#10;&#10;// Clase concreta (té)&#10;// public class Te extends BebidaCaliente {&#10;//     protected void agregarIngredientes() {&#10;//         System.out.println(&quot;Agregando bolsa de té...&quot;);&#10;//     }&#10;// }&#10;&#10;// Clase concreta (café)&#10;// public class Cafe extends BebidaCaliente {&#10;//     protected void agregarIngredientes() {&#10;//         System.out.println(&quot;Agregando café molido...&quot;);&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         BebidaCaliente bebida = new Te();&#10;//         bebida.preparar();  // Prepara té&#10;//&#10;//         bebida = new Cafe();&#10;//         bebida.preparar();  // Prepara café&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="visi 1intvisi" value="public interface $VISITOR$ {&#10;    void visitar($ELEMENTO$ elemento);&#10;}&#10;" description="comport-agregarnuevasfunc-agregadistinto" toReformat="false" toShortenFQNames="true">
+    <variable name="VISITOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ELEMENTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="visi 2intele" value="public interface $ELEMENTO$ {&#10;    void aceptar($VISITOR$ visitor);&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="ELEMENTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VISITOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="visi 3elemconcr" value="public class $ELEMENTOCONCRETO$ implements $ELEMENTO$ {&#10;&#10;    @Override&#10;    public void aceptar($VISITOR$ visitor) {&#10;        visitor.visitar(this);&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="ELEMENTOCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ELEMENTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VISITOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="visi 4visiconcr" value="public class $VISITORCONCRETO$ implements $VISITOR$ {&#10;&#10;    @Override&#10;    public void visitar($ELEMENTO$ elemento) {&#10;        // Lógica específica para este visitor&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="VISITORCONCRETO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="VISITOR" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <variable name="ELEMENTO" expression="input()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="visi ej" value="// Elemento (interfaz para las figuras)&#10;// public interface Figura {&#10;//     void aceptar(Visitor visitor);&#10;// }&#10;&#10;// Elemento concreto 1 (Círculo)&#10;// public class Circulo implements Figura {&#10;//     public double radio = 5;&#10;//&#10;//     public void aceptar(Visitor visitor) {&#10;//         visitor.visitarCirculo(this);&#10;//     }&#10;// }&#10;&#10;// Elemento concreto 2 (Cuadrado)&#10;// public class Cuadrado implements Figura {&#10;//     public double lado = 4;&#10;//&#10;//     public void aceptar(Visitor visitor) {&#10;//         visitor.visitarCuadrado(this);&#10;//     }&#10;// }&#10;&#10;// Visitor (define los métodos para cada tipo de figura)&#10;// public interface Visitor {&#10;//     void visitarCirculo(Circulo c);&#10;//     void visitarCuadrado(Cuadrado c);&#10;// }&#10;&#10;// Visitor concreto (calcula el área)&#10;// public class CalculadorArea implements Visitor {&#10;//     public void visitarCirculo(Circulo c) {&#10;//         double area = Math.PI * c.radio * c.radio;&#10;//         System.out.println(&quot;Área del círculo: &quot; + area);&#10;//     }&#10;//&#10;//     public void visitarCuadrado(Cuadrado c) {&#10;//         double area = c.lado * c.lado;&#10;//         System.out.println(&quot;Área del cuadrado: &quot; + area);&#10;//     }&#10;// }&#10;&#10;// Uso en main:&#10;// public class Main {&#10;//     public static void main(String[] args) {&#10;//         Figura circulo = new Circulo();&#10;//         Figura cuadrado = new Cuadrado();&#10;//&#10;//         Visitor calculador = new CalculadorArea();&#10;//&#10;//         circulo.aceptar(calculador);  // Calcula área del círculo&#10;//         cuadrado.aceptar(calculador); // Calcula área del cuadrado&#10;//     }&#10;// }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>
